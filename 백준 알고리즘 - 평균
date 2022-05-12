@@ -1,0 +1,49 @@
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.StringTokenizer;
+
+public class Main {
+    public static void main(String[] args) throws NumberFormatException, IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        
+        // 성적의 개수 구하기      by.민츠 (2022.5.12)
+        int n = Integer.parseInt(br.readLine());
+        
+        // 현재 성적 구하기      by.민츠 (2022.5.12)
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        
+        // 배열 생성 후, 성적 입력 받기   by.민츠 (2022.5.12)
+        double ary[] = new double[n];
+        
+        for(int i = 0; i < n; i++) {
+            double a = Integer.parseInt(st.nextToken());
+            ary[i] = a;
+        }
+        
+        // 오름차순 정렬      by.민츠 (2022.5.12)
+        Arrays.sort(ary);
+        double b = ary[n-1];
+        
+        // 성적 계산      by.민츠 (2022.5.12)
+        for(int j = 0; j < ary.length; j++) {
+            ary[j] = ary[j] / b * 100;
+        }
+        
+        // 평균 낼 때 double형 변수로 만드는 것 주의!!      by.민츠 (2022.5.12)
+        double sum = 0;
+        
+        // 다시 평균 구하기      by.민츠 (2022.5.12)
+        for(int k = 0; k < ary.length; k++) {
+            sum += ary[k];
+        }
+        
+        double result = sum / n;
+        
+        System.out.println(result);
+        
+        br.close();
+    }
+}
