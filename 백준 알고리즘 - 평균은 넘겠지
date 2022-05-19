@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+    	
+    	// 테스트 케이스 개수 입력받기      By.민츠 (2022.05.19)
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        
+        // for문으로 테스트케이스 개수만큼 배열 C에 점수 입력하기    By.민츠 (2022.05.19)
+        for(int i=0; i < N; i++) {
+            int C[] = new int[sc.nextInt()];
+            int sum = 0;
+            
+        // 입력받은 점수를 배열 C에 저장 후, sum에 합계 계산      By.민츠 (2022.05.19)    
+            for(int j = 0; j < C.length; j++) {
+                int grade = sc.nextInt();
+                C[j] = grade;
+                sum += grade;
+            }
+        // 평균 계산을 위해 double 형 사용하여 평균 계산      By.민츠 (2022.05.19)
+            double avr = sum / C.length;
+            double count = 0;
+            
+        // for문 이용하여 평균값보다 높은 배열 값은 카운팅하기   By.민츠 (2022.05.19) 
+            for(int k = 0; k < C.length; k++) {
+                if(C[k] > avr) {
+                    count++;
+                }
+            }
+            
+        // 소수점 아래 3자리 까지 카운팅 비율 계산      By.민츠 (2022.05.19)    
+            System.out.printf("%.3f", count / C.length * 100);
+            System.out.println("%");
+        }
+    }
+}
