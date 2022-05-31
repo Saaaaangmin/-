@@ -1,0 +1,43 @@
+/* 1065 */
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int num = sc.nextInt();
+
+    // 100 이하의 숫자는 모두 한수이므로 카운트
+		if (num<100){
+			System.out.println(num);
+		}
+
+    // 100 이상의 수는 99로 초기화 후, 카운트  
+		else{
+			int result = 99;
+
+      // 101~110까지는 한수가 존재하지 않으므로 111부터 카운트
+	  		for (int i = 111; i <= num; i++)
+  				result += han(i);
+			
+			System.out.println(result);
+		}
+	}
+
+  // 한수 구하는 함수 구현
+  public static int han(int a) {
+      // 100 ~ 999 사이의 수 조건별로 계산
+      int sum = a / 100;
+      int sum2 = (a % 100) / 10;
+      int sum3 = (a % 10);
+      // 2sum = (sum-d) + (sum + d) 의 성질을 만족하는지 판단
+      if(2*sum2 == (sum + sum3)) {
+       return 1;
+      }
+        
+    else {
+      return 0;
+    }
+  }
+}
+
