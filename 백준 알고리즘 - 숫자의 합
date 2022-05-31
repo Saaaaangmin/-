@@ -1,0 +1,20 @@
+/* 11720 */
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        
+        int N = sc.nextInt();
+        // 문자열 입력
+        String A = sc.next();
+        int sum = 0;
+        // 숫자가 붙어있기에 문자 하나하나로 변환해주어야함, 아스키코드값으로 출력되기에 '0'을 빼주거나 48을 빼주어야 함       By.민츠(2022.05.30)
+        for(int i = 0; i<N; i++) {
+            sum = sum + A.charAt(i) - '0';
+        }
+        System.out.println(sum);
+        sc.close();
+    }
+    
+}
