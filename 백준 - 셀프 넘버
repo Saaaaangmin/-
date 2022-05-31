@@ -1,0 +1,38 @@
+public class Main {
+  public static void main(String[] args) throws Exception {
+    
+    // chck 배열을 활용해 생성자 아닌 수 찾기
+    boolean chck[] = new boolean[10001];
+    
+  for(int i = 1; i < 10001; i++) {
+        int a = Dn(i);
+  
+
+    if(a < 10001) {
+      chck[a] = true;
+    } 
+ }
+    StringBuilder sb = new StringBuilder();
+      
+    for(int j=1; j < 10001; j++) {
+    // 생성자가 아닌 수 찾고, sb에 입력
+    if(chck[j] != true) {
+      sb.append(j).append("\n");
+    }
+  }
+      
+      System.out.println(sb);
+ }
+
+// 자리수의 합을 통한 Dn 함수 구현
+public static int Dn(int number){
+	int sum = number;
+    
+	while(number != 0){
+		sum = sum + (number % 10); // 첫 째 자리수
+	 	number = number/10;	// 10을 나누어 첫 째 자리를 없앤다
+	}
+    
+	   return sum;
+ }
+}
