@@ -1,0 +1,12 @@
+/* 15596 */
+public class Test {
+    long sum(int[] a) {
+        long ans = 0;
+        // 매개변수 a 배열의 길이만큼 ans 변수에 배열 값 입력      By.민츠 (2022.05.30)
+        for(int i=0; i<a.length; i++) {
+            ans += a[i];
+        }
+
+        return ans;
+    }
+}
