@@ -1,0 +1,25 @@
+/* 2675 */
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        // 테스트 케이스 수 입력
+        int T = sc.nextInt();
+        for(int t = 0; t < T; t++) {
+        // 반복할 숫자 입력
+        int N = sc.nextInt();
+        // 입력받을 문자열
+        String S = sc.next();
+      
+        // 이중 for문을 활용해, N번 만큼 S의 문자를 하나씩 출력함
+        for(int i=0; i < S.length(); i++) {
+          for(int j = 0; j < N; j++) {
+            System.out.print(S.charAt(i));
+          }
+        }
+      System.out.println();
+    }
+      sc.close();
+  }
+}
