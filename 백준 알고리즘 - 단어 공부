@@ -1,0 +1,47 @@
+/* 1157 */
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+      
+        // 영문자 배열 생성
+        int[] A = new int[26];
+        // 최댓값 변수 생성
+        int max = -999;
+        // 출력할 문자 변수 생성
+        char c = '?';
+      
+        // 입력받을 문자열
+        String S = sc.next();
+      
+        // 문자열이 길이만큼 반복
+        for(int i=0; i < S.length(); i++) {
+        // A~Z 사이의 문자인 경우 해당 인덱스 카운팅
+            if(S.charAt(i) >= 65 && S.charAt(i) < 91) {
+              A[S.charAt(i) - 'A']++;
+            }
+        // a~z 사이의 문자인 경우 해당 인덱스 카운팅
+            else {
+              A[S.charAt(i) - 'a']++;
+            }
+          }
+      
+        for(int j=0; j<A.length; j++) {     
+        // 최댓값 찾기
+          if(max < A[j]) {
+            max = A[j];
+            // A-Z 까지의 대문자를 출력하므로 65를 더해준다
+            c = (char) (j + 65);
+          }
+            
+        // 같은 문자 개수가 존재할 경우 '?' 출력
+          else if(max == A[j]) {
+            c = '?';
+          }     
+      }
+
+      System.out.println(c);
+            sc.close(); 
+    }
+}
