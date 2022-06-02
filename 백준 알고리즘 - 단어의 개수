@@ -1,0 +1,17 @@
+/* 1152 */
+import java.util.Scanner;
+import java.util.StringTokenizer;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+
+        String s = sc.nextLine();
+        // 공백을 기준으로 문자열 토큰화
+        StringTokenizer st = new StringTokenizer(s, " ");
+      
+        // countToken을 사용해 공백을 기준으로 토큰의 개수 출력
+      System.out.println(st.countTokens());
+      sc.close(); 
+    }
+}
