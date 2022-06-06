@@ -1,0 +1,35 @@
+/* 2525 */
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+      Scanner sc = new Scanner(System.in);
+      
+      // 시간, 분 입력 받기
+      int h = sc.nextInt();
+      int m = sc.nextInt();
+      // 더해줄 시간 입력받기
+      int a = sc.nextInt();
+      
+      // 60분 이상일 때 몫의 수를 더해 시간 계산
+      h += a / 60;
+      // 60 mod를 통해 분 계산
+      m += a % 60;
+        
+      // 60분 이상일 경우 00분으로 초기화하고, 시간 +1
+      if(m >= 60) {
+        h += 1;
+        m = m - 60;
+      }
+      
+      // 시간이 24 이상이면 0으로 초기화
+      if(h >= 24) {
+        h = h - 24;
+      }
+       
+
+      System.out.println(h + " " + m);
+      sc.close();
+    }
+}
