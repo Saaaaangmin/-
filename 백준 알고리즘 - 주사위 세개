@@ -1,0 +1,39 @@
+/* 2480 */
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) throws Exception {
+      Scanner sc = new Scanner(System.in);
+      
+      // 주사위 세 개의 눈 입력받기
+      int a = sc.nextInt();
+      int b = sc.nextInt();
+      int c = sc.nextInt();
+        
+      // 주사위 3개의 눈이 모두 같은 경우
+      if((a == b) && (b == c)) {
+        System.out.println(10000 + (a * 1000));
+      }
+      // 주사위 2개의 눈이 같은 경우  
+      else if(a == b || a == c) {
+       System.out.println(1000 + (a * 100));
+      }
+      // 주사위 2개의 눈이 같은 경우  
+      else if(b == c) {
+        System.out.println(1000 + (b * 100));
+      }
+      // 주사위 눈 모두 다른 경우
+      else {       
+        int max = (a > b ? a : b);
+        if(max < c) {
+          max = c;
+          System.out.println(max * 100);
+        }    
+        else {
+          System.out.println(max * 100);
+        }
+       }
+      sc.close();
+    }
+}
