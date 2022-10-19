@@ -1,0 +1,31 @@
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    // 지불 금액
+    static final int MONEY = 1000;
+    // 거스름 돈 종류
+    static int[] change = {500, 100, 50, 10, 5, 1};
+    
+    public static void main(String[] args) throws IOException {
+        int pay = Integer.parseInt(br.readLine());
+    
+        System.out.println(solve(MONEY - pay));
+    }
+    
+    // 거스름 돈 계산 함수 (그리디 계산)
+    private static int solve(int changeMoney) {
+        int result = 0;
+
+        for (int index = 0; index < change.length && changeMoney >= 0; index++) {
+          // 그리디 알고리즘 공식
+            result += changeMoney / change[index];
+            changeMoney %= change[index];
+        }
+        return result;
+    }
+}
